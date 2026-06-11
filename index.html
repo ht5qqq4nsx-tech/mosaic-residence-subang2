@@ -318,6 +318,63 @@
     .hpanel{width:80vw;height:62vh;scroll-snap-align:center}
     .hintro{width:78vw;padding:18px 4vw}
   }
+
+  /* ---------- GIFT: VALUE RECEIPT (more direct) ---------- */
+  .gift .valuebar{margin:0 0 30px;background:linear-gradient(120deg,var(--gold),#e7c578);color:#181307;border-radius:20px;padding:24px 30px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;box-shadow:0 20px 50px rgba(201,162,94,.28)}
+  .gift .valuebar .vb-l{font-weight:800;font-size:15px;letter-spacing:.5px;text-transform:uppercase}
+  .gift .valuebar .vb-l span{display:block;font-family:'Playfair Display',serif;font-size:clamp(26px,3.6vw,40px);text-transform:none;letter-spacing:0;line-height:1.1;margin-top:4px}
+  .gift .valuebar .vb-r{text-align:right;font-weight:700;font-size:13px}
+  .gift .valuebar .vb-r b{display:block;font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,46px);line-height:1}
+  .gift .g{position:relative}
+  .gift .g .free{position:absolute;top:12px;right:12px;background:var(--gold);color:#181307;font-size:10px;font-weight:800;letter-spacing:1px;padding:3px 9px;border-radius:20px;text-transform:uppercase}
+  .gift .g .was{display:block;font-size:12px;color:#8b8574;margin-top:6px}
+  .gift .g .was s{opacity:.8}
+  .gift .g .was b{color:var(--gold);font-weight:800}
+
+  /* ---------- CONSTRUCTION PROGRESS ---------- */
+  .prog{background:linear-gradient(180deg,#0e1217,#0a0d12)}
+  .prog .head{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:end;margin-bottom:14px}
+  .prog .head h2{color:#fff}
+  .prog .head p{color:var(--muted);font-size:16px;margin-top:10px}
+  .prog .statpill{display:inline-flex;align-items:center;gap:9px;background:rgba(74,180,110,.12);border:1px solid rgba(74,180,110,.4);color:#7fe3a3;border-radius:30px;padding:8px 16px;font-size:13px;font-weight:700;margin-bottom:14px}
+  .prog .statpill .dot{width:9px;height:9px;border-radius:50%;background:#4ab46e;box-shadow:0 0 0 0 rgba(74,180,110,.6);animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(74,180,110,.55)}70%{box-shadow:0 0 0 12px rgba(74,180,110,0)}100%{box-shadow:0 0 0 0 rgba(74,180,110,0)}}
+  .prog .pics{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:40px 0 8px}
+  .prog .cphoto{position:relative;border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45);aspect-ratio:16/10;background:#11151b}
+  .prog .cphoto img{width:100%;height:100%;object-fit:cover;display:block}
+  .prog .cphoto .cap{position:absolute;left:0;right:0;bottom:0;padding:46px 22px 18px;background:linear-gradient(transparent,rgba(8,10,13,.9));color:#fff;font-weight:700;font-size:14px}
+  .prog .cphoto .cap span{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+  .prog .barwrap{margin-top:30px;background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:26px 28px}
+  .prog .barwrap .lbl{display:flex;justify-content:space-between;color:#dfdbd1;font-size:14px;font-weight:600;margin-bottom:12px}
+  .prog .barwrap .lbl b{color:var(--gold)}
+  .prog .track{height:12px;border-radius:20px;background:#1b222b;overflow:hidden}
+  .prog .track i{display:block;height:100%;width:78%;border-radius:20px;background:linear-gradient(90deg,var(--gold),#e7c578)}
+  .prog .miles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+  .prog .mile{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:18px 16px;text-align:center}
+  .prog .mile.done{border-color:rgba(74,180,110,.4)}
+  .prog .mile.now{border-color:var(--line);background:#171e26}
+  .prog .mile .ph{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);font-weight:800}
+  .prog .mile .ds{color:#dfdbd1;font-size:14px;margin-top:7px;font-weight:600}
+  .prog .mile .st{font-size:11px;margin-top:6px;color:#7fe3a3;font-weight:700}
+  .prog .mile.now .st{color:var(--gold)}
+  .prog .mile.todo .st{color:#8b8574}
+  @media(max-width:880px){.prog .head{grid-template-columns:1fr}.prog .pics{grid-template-columns:1fr}.prog .miles{grid-template-columns:1fr 1fr}}
+
+  /* ---------- LOCATION: OFFICIAL MAP IMAGE ---------- */
+  .locn .mapimg{margin-top:40px;border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:0 24px 60px rgba(0,0,0,.4);cursor:zoom-in;position:relative}
+  .locn .mapimg img{width:100%;display:block}
+  .locn .mapimg .tag{position:absolute;top:14px;left:14px;background:rgba(8,10,13,.7);backdrop-filter:blur(6px);color:#fff;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;padding:7px 14px;border-radius:20px}
+
+  /* ---------- PLAN IMAGE + LIGHTBOX ---------- */
+  .plan .planimg{background:#fbfaf6;border-bottom:1px solid #efe9da;padding:18px;cursor:zoom-in;position:relative}
+  .plan .planimg img{width:100%;height:230px;object-fit:contain;display:block}
+  .plan .planimg .zoom{position:absolute;top:14px;right:14px;background:rgba(22,19,12,.78);color:#fff;font-size:11px;font-weight:700;letter-spacing:.5px;padding:5px 11px;border-radius:20px;display:flex;align-items:center;gap:5px}
+  .lb{position:fixed;inset:0;z-index:300;background:rgba(8,9,12,.92);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:30px;cursor:zoom-out}
+  .lb.open{display:flex;animation:lbin .25s ease}
+  @keyframes lbin{from{opacity:0}to{opacity:1}}
+  .lb img{max-width:94vw;max-height:88vh;border-radius:14px;background:#fff;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  .lb .lbx{position:absolute;top:22px;right:26px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.4);color:#fff;font-size:20px;cursor:pointer}
+  .lb .lbcap{position:absolute;bottom:26px;left:0;right:0;text-align:center;color:#fff;font-weight:700;letter-spacing:.5px}
 </style>
 </head>
 <body>
@@ -341,6 +398,7 @@
     <a href="#gift">Free Package</a>
     <a href="#lifestyle">Lifestyle</a>
     <a href="#location">Location</a>
+    <a href="#progress">Progress</a>
     <a href="#plans">Floor Plans</a>
   </div>
   <a class="wa-mini" href="https://wa.me/60182131314?text=Hi%2C%20I%27m%20interested%20in%20Mosaic%20Residence%20Subang%202.%20Please%20send%20info." target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>WhatsApp Us</a>
@@ -413,15 +471,19 @@
       <div class="serif" style="font-size:clamp(22px,3vw,32px);color:#fff;line-height:1.2">Walk in. Switch on. You're home.</div>
     </div>
   </div>
+  <div class="valuebar reveal">
+    <div class="vb-l">All 7 fitted &amp; included<span>You renovate nothing.</span></div>
+    <div class="vb-r">Est. retail value<b>RM24,000+</b></div>
+  </div>
   <div class="grid">
-    <div class="g reveal"><span class="e">🗄️</span><h3>Kitchen Cabinet</h3><p>Full fitted kitchen</p></div>
-    <div class="g reveal d1"><span class="e">🍳</span><h3>Hood &amp; Hob</h3><p>Cook from day one</p></div>
-    <div class="g reveal d2"><span class="e">🔐</span><h3>Digital Lock</h3><p>Keyless security</p></div>
-    <div class="g reveal d3"><span class="e">❄️</span><h3>Air Conditioner</h3><p>Pre-installed comfort</p></div>
-    <div class="g reveal"><span class="e">🚿</span><h3>Water Heater</h3><p>Ready every morning</p></div>
-    <div class="g reveal d1"><span class="e">🧊</span><h3>2-Door Fridge</h3><p>Family-sized</p></div>
-    <div class="g reveal d2"><span class="e">🌀</span><h3>Washing Machine</h3><p>Plug &amp; play</p></div>
-    <div class="g reveal d3" style="background:linear-gradient(135deg,rgba(201,162,94,.22),rgba(201,162,94,.08));border-color:var(--line)"><span class="e">✨</span><h3 style="color:var(--gold)">All Included</h3><p>Free with your unit</p></div>
+    <div class="g reveal"><span class="free">Free</span><span class="e">🗄️</span><h3>Kitchen Cabinet</h3><p>Full fitted kitchen</p><span class="was"><s>RM12,000</s> → <b>RM0</b></span></div>
+    <div class="g reveal d1"><span class="free">Free</span><span class="e">🍳</span><h3>Hood &amp; Hob</h3><p>Cook from day one</p><span class="was"><s>RM1,800</s> → <b>RM0</b></span></div>
+    <div class="g reveal d2"><span class="free">Free</span><span class="e">🔐</span><h3>Digital Lock</h3><p>Keyless security</p><span class="was"><s>RM1,500</s> → <b>RM0</b></span></div>
+    <div class="g reveal d3"><span class="free">Free</span><span class="e">❄️</span><h3>Air Conditioner</h3><p>Pre-installed comfort</p><span class="was"><s>RM4,500</s> → <b>RM0</b></span></div>
+    <div class="g reveal"><span class="free">Free</span><span class="e">🚿</span><h3>Water Heater</h3><p>Ready every morning</p><span class="was"><s>RM900</s> → <b>RM0</b></span></div>
+    <div class="g reveal d1"><span class="free">Free</span><span class="e">🧊</span><h3>2-Door Fridge</h3><p>Family-sized</p><span class="was"><s>RM2,200</s> → <b>RM0</b></span></div>
+    <div class="g reveal d2"><span class="free">Free</span><span class="e">🌀</span><h3>Washing Machine</h3><p>Plug &amp; play</p><span class="was"><s>RM1,600</s> → <b>RM0</b></span></div>
+    <div class="g reveal d3" style="background:linear-gradient(135deg,rgba(201,162,94,.22),rgba(201,162,94,.08));border-color:var(--line)"><span class="e">✨</span><h3 style="color:var(--gold)">All Included</h3><p>Free with your unit</p><span class="was" style="color:var(--gold)"><b>You save RM24,000+</b></span></div>
   </div>
   <div class="deal reveal">
     <div>
@@ -551,6 +613,10 @@
       <div class="d reveal"><span class="p">Elmina Lakeside Mall</span><span class="km">8 km</span></div>
     </div>
   </div>
+  <div class="mapimg reveal" onclick="openLB('assets/location-map.jpg','Mosaic Residence — Subang 2 connectivity map')">
+    <span class="tag">Tap to enlarge</span>
+    <img src="assets/location-map.jpg" alt="Mosaic Residence Subang 2 connectivity map — malls, MRT/LRT, schools, hospitals & Subang Airport" loading="lazy">
+  </div>
   <div class="mapwrap reveal"><iframe src="https://maps.google.com/maps?q=Mosaic%20Residence%20Nadayu%20Subang%202%20Shah%20Alam&z=14&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mosaic Residence Subang 2 location map"></iframe></div>
 </div></section>
 
@@ -558,10 +624,12 @@
 <section class="plans" id="plans"><div class="wrap">
   <div class="eyebrow reveal">The Residences</div>
   <h2 class="reveal d1">Choose your layout</h2>
+  <p class="reveal" style="margin-top:14px;color:#6a6557;font-size:15px;max-width:560px">Real floor plans, straight from the brochure. Tap any plan to see it full-size.</p>
   <div class="grid">
 
     <div class="plan reveal">
       <div class="top"><div class="type">Type D · Best Value</div><div class="sqft">1,033 <span>sqft</span></div></div>
+      <div class="planimg" onclick="openLB('assets/plan-d.png','Type D · 1,033 sqft · 3 Bed 3 Bath')"><span class="zoom">⤢ Enlarge</span><img src="assets/plan-d.png" alt="Mosaic Residence Type D floor plan, 1,033 sqft, 3 bedrooms 3 bathrooms"></div>
       <div class="body">
         <div class="spec"><span>Bedrooms</span><b>3</b></div>
         <div class="spec"><span>Bathrooms</span><b>3</b></div>
@@ -571,8 +639,21 @@
       <div class="cta"><a class="wa-btn" href="https://wa.me/60182131314?text=Hi%2C%20I%27m%20interested%20in%20Mosaic%20Residence%20Type%20D%20(1%2C033%20sqft%2C%203BR).%20Please%20send%20the%20floor%20plan%20%26%20price." target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>Get This Floor Plan</a></div>
     </div>
 
-    <div class="plan alt reveal d1">
+    <div class="plan reveal d1">
+      <div class="top"><div class="type">Type E</div><div class="sqft">1,033 <span>sqft</span></div></div>
+      <div class="planimg" onclick="openLB('assets/plan-e.png','Type E · 1,033 sqft · 3 Bed 2 Bath')"><span class="zoom">⤢ Enlarge</span><img src="assets/plan-e.png" alt="Mosaic Residence Type E floor plan, 1,033 sqft, 3 bedrooms 2 bathrooms"></div>
+      <div class="body">
+        <div class="spec"><span>Bedrooms</span><b>3</b></div>
+        <div class="spec"><span>Bathrooms</span><b>2</b></div>
+        <div class="spec"><span>Car Parks</span><b>2</b></div>
+      </div>
+      <div class="price">From RM559,000<small>Smart, efficient layout</small></div>
+      <div class="cta"><a class="wa-btn" href="https://wa.me/60182131314?text=Hi%2C%20I%27m%20interested%20in%20Mosaic%20Residence%20Type%20E%20(1%2C033%20sqft%2C%203BR).%20Please%20send%20the%20floor%20plan%20%26%20price." target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>Get This Floor Plan</a></div>
+    </div>
+
+    <div class="plan reveal d2">
       <div class="top"><div class="type">Type C</div><div class="sqft">1,151 <span>sqft</span></div></div>
+      <div class="planimg" onclick="openLB('assets/plan-c.png','Type C · 1,151 sqft · 3 Bed 2 Bath')"><span class="zoom">⤢ Enlarge</span><img src="assets/plan-c.png" alt="Mosaic Residence Type C floor plan, 1,151 sqft, 3 bedrooms 2 bathrooms"></div>
       <div class="body">
         <div class="spec"><span>Bedrooms</span><b>3</b></div>
         <div class="spec"><span>Bathrooms</span><b>2</b></div>
@@ -582,8 +663,21 @@
       <div class="cta"><a class="wa-btn" href="https://wa.me/60182131314?text=Hi%2C%20I%27m%20interested%20in%20Mosaic%20Residence%20Type%20C%20(1%2C151%20sqft%2C%203BR).%20Please%20send%20the%20floor%20plan%20%26%20price." target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>Get This Floor Plan</a></div>
     </div>
 
-    <div class="plan alt2 reveal d2">
+    <div class="plan reveal">
+      <div class="top"><div class="type">Type B</div><div class="sqft">1,151 <span>sqft</span></div></div>
+      <div class="planimg" onclick="openLB('assets/plan-b.png','Type B · 1,151 sqft · 3 Bed 2 Bath')"><span class="zoom">⤢ Enlarge</span><img src="assets/plan-b.png" alt="Mosaic Residence Type B floor plan, 1,151 sqft, 3 bedrooms 2 bathrooms"></div>
+      <div class="body">
+        <div class="spec"><span>Bedrooms</span><b>3</b></div>
+        <div class="spec"><span>Bathrooms</span><b>2</b></div>
+        <div class="spec"><span>Car Parks</span><b>2–3</b></div>
+      </div>
+      <div class="price">From RM588,000<small>Generous 3-bedroom</small></div>
+      <div class="cta"><a class="wa-btn" href="https://wa.me/60182131314?text=Hi%2C%20I%27m%20interested%20in%20Mosaic%20Residence%20Type%20B%20(1%2C151%20sqft%2C%203BR).%20Please%20send%20the%20floor%20plan%20%26%20price." target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>Get This Floor Plan</a></div>
+    </div>
+
+    <div class="plan reveal d1">
       <div class="top"><div class="type">Type A · 4 Bedrooms</div><div class="sqft">1,151 <span>sqft</span></div></div>
+      <div class="planimg" onclick="openLB('assets/plan-a.png','Type A · 1,151 sqft · 4 Bed 3 Bath')"><span class="zoom">⤢ Enlarge</span><img src="assets/plan-a.png" alt="Mosaic Residence Type A floor plan, 1,151 sqft, 4 bedrooms 3 bathrooms"></div>
       <div class="body">
         <div class="spec"><span>Bedrooms</span><b>4</b></div>
         <div class="spec"><span>Bathrooms</span><b>3</b></div>
@@ -594,7 +688,46 @@
     </div>
 
   </div>
-  <p class="reveal" style="margin-top:26px;color:#8b8574;font-size:14px;text-align:center">Also available: Type B (3BR) &amp; dual-key layouts — WhatsApp for the full price list.</p>
+  <p class="reveal" style="margin-top:26px;color:#8b8574;font-size:14px;text-align:center">Dual-key &amp; corner units also available — WhatsApp for the full price list &amp; unit availability.</p>
+</div></section>
+
+<!-- ===================== CONSTRUCTION PROGRESS ===================== -->
+<section class="prog" id="progress"><div class="wrap">
+  <div class="statpill reveal"><span class="dot"></span>Under construction — on track</div>
+  <div class="head">
+    <div>
+      <div class="eyebrow reveal">Live Progress</div>
+      <h2 class="reveal d1">Watch your home rise — <em style="color:var(--gold);font-style:italic">keys in December 2026</em></h2>
+    </div>
+    <p class="reveal d2">This isn't a render on a billboard. The towers are real and rising fast in Subang 2 — structure topping out now, finishing works next. Book today and move into a brand-new, fully-fitted home by year-end 2026.</p>
+  </div>
+
+  <div class="pics">
+    <figure class="cphoto reveal" onclick="openLB('assets/construction-1.jpg','Mosaic Residence — site progress, Subang 2')">
+      <img src="assets/construction-1.jpg" alt="Mosaic Residence Subang 2 construction progress aerial view" loading="lazy" onerror="this.closest('.cphoto').style.display='none'">
+      <figcaption class="cap"><span>On Site · 2026</span>Tower structure rising</figcaption>
+    </figure>
+    <figure class="cphoto reveal d1" onclick="openLB('assets/construction-2.jpg','Mosaic Residence — site progress, Subang 2')">
+      <img src="assets/construction-2.jpg" alt="Mosaic Residence Subang 2 development aerial view with completed podium" loading="lazy" onerror="this.closest('.cphoto').style.display='none'">
+      <figcaption class="cap"><span>On Site · 2026</span>Podium &amp; facade taking shape</figcaption>
+    </figure>
+  </div>
+
+  <div class="barwrap reveal">
+    <div class="lbl"><span>Overall construction progress</span><b>Topping-out stage</b></div>
+    <div class="track"><i></i></div>
+  </div>
+
+  <div class="miles">
+    <div class="mile done reveal"><div class="ph">Stage 1</div><div class="ds">Foundation &amp; podium</div><div class="st">✓ Done</div></div>
+    <div class="mile done reveal d1"><div class="ph">Stage 2</div><div class="ds">Tower structure</div><div class="st">✓ Done</div></div>
+    <div class="mile now reveal d2"><div class="ph">Stage 3</div><div class="ds">Facade &amp; finishing</div><div class="st">● In progress</div></div>
+    <div class="mile todo reveal d3"><div class="ph">Stage 4</div><div class="ds">Handover &amp; keys</div><div class="st">Dec 2026</div></div>
+  </div>
+
+  <div style="text-align:center;margin-top:38px">
+    <a class="wa-btn" href="https://wa.me/60182131314?text=Hi%2C%20I%20saw%20the%20Mosaic%20Residence%20construction%20progress.%20Please%20send%20me%20the%20latest%20site%20photos%2C%20price%20list%20%26%20floor%20plans." target="_blank" rel="noopener" style="display:inline-flex"><svg class="wa-ico"><use href="#wa"/></svg>Get the Latest Site Photos</a>
+  </div>
 </div></section>
 
 <!-- ===================== TRUST ===================== -->
@@ -637,6 +770,14 @@
 </footer>
 
 <!-- ===================== POPUP ===================== -->
+<!-- ===================== LIGHTBOX ===================== -->
+<div class="lb" id="lb" onclick="closeLB()"><button class="lbx" aria-label="Close">✕</button><img id="lbImg" src="" alt="Enlarged view" onclick="event.stopPropagation()"><div class="lbcap" id="lbCap"></div></div>
+<script>
+  function openLB(src,cap){var lb=document.getElementById('lb');document.getElementById('lbImg').src=src;document.getElementById('lbCap').textContent=cap||'';lb.classList.add('open');document.body.style.overflow='hidden';}
+  function closeLB(){document.getElementById('lb').classList.remove('open');document.body.style.overflow='';}
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLB();});
+</script>
+
 <div class="pop-overlay" id="popOverlay" role="dialog" aria-modal="true">
   <div class="pop">
     <button class="x" id="popClose" aria-label="Close">✕</button>
