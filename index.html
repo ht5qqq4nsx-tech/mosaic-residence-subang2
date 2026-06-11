@@ -274,9 +274,58 @@
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}70%{box-shadow:0 0 0 18px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
   .sticky{position:fixed;left:0;right:0;bottom:0;background:rgba(12,15,19,.92);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,.08);padding:12px 16px;display:flex;justify-content:center;z-index:115}
   .sticky .wa-btn{width:100%;max-width:460px;justify-content:center;font-size:15.5px;padding:14px}
+
+  /* ---------- LOADER ---------- */
+  #loader{position:fixed;inset:0;z-index:1000;background:#0e1217;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px;transition:opacity .9s ease,visibility .9s}
+  #loader.done{opacity:0;visibility:hidden}
+  #loader img{height:56px;opacity:0;transform:translateY(12px);animation:ldLogo 1s .1s forwards cubic-bezier(.16,1,.3,1)}
+  @keyframes ldLogo{to{opacity:1;transform:none}}
+  #loader .bar{width:170px;height:2px;background:rgba(255,255,255,.12);border-radius:2px;overflow:hidden}
+  #loader .bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold-deep),var(--gold));animation:ldBar 1.4s .2s forwards cubic-bezier(.6,0,.2,1)}
+  @keyframes ldBar{to{width:100%}}
+  #loader .lbl{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#6e747e}
+
+  /* ---------- CUSTOM CURSOR ---------- */
+  .cursor-dot,.cursor-ring{position:fixed;top:0;left:0;border-radius:50%;pointer-events:none;z-index:999;mix-blend-mode:difference}
+  .cursor-dot{width:7px;height:7px;background:#fff}
+  .cursor-ring{width:38px;height:38px;border:1px solid rgba(255,255,255,.6);transition:width .25s,height .25s,background .25s,border-color .25s}
+  .cursor-ring.hover{width:58px;height:58px;background:rgba(201,162,94,.2);border-color:transparent}
+  @media(max-width:900px),(pointer:coarse){.cursor-dot,.cursor-ring{display:none}}
+
+  /* nav scrolled */
+  nav.scrolled{padding:9px 26px;background:rgba(10,13,17,.97)}
+  nav.scrolled .brand img{height:30px}
+
+  /* ---------- HORIZONTAL SHOWCASE ---------- */
+  .hsec{background:#0e1217;overflow:hidden;min-height:100vh;display:flex;align-items:center}
+  .htrack{display:flex;align-items:center;gap:26px;padding:0 6vw;will-change:transform}
+  .hpanel{position:relative;flex:0 0 auto;width:64vw;max-width:700px;height:74vh;border-radius:24px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.4)}
+  .hpanel img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.16,1,.3,1)}
+  .hpanel:hover img{transform:scale(1.06)}
+  .hpanel figcaption{position:absolute;left:0;right:0;bottom:0;padding:74px 30px 26px;background:linear-gradient(transparent,rgba(8,10,13,.92));color:#fff;font-family:'Playfair Display',serif;font-size:25px}
+  .hpanel figcaption .sub{display:block;font-family:'Manrope',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;font-weight:700}
+  .hintro{flex:0 0 auto;width:36vw;max-width:400px;padding-right:24px}
+  .hintro .k{color:var(--gold);font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px}
+  .hintro h2{color:#fff}
+  .hintro p{color:var(--muted);margin-top:16px;font-size:16px}
+  @media(max-width:820px){
+    .hsec{min-height:0;display:block;padding:8px 0}
+    .htrack{overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:24px 5vw;gap:16px}
+    .htrack::-webkit-scrollbar{display:none}
+    .hpanel{width:80vw;height:62vh;scroll-snap-align:center}
+    .hintro{width:78vw;padding:18px 4vw}
+  }
 </style>
 </head>
 <body>
+
+<div id="loader">
+  <img src="assets/logo.webp" alt="Mosaic Residence">
+  <div class="bar"><span></span></div>
+  <div class="lbl">Mosaic Residence</div>
+</div>
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
 
 <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
   <symbol id="wa" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></symbol>
@@ -427,6 +476,23 @@
     <div class="k">The Arrival</div>
     <h2 class="serif">A welcome worth coming home to</h2>
     <p>A designer lobby and grand covered drop-off — first impressions that stay impressive.</p>
+  </div>
+</section>
+
+<!-- ===================== HORIZONTAL SHOWCASE (pinned) ===================== -->
+<section class="hsec" id="discover">
+  <div class="htrack">
+    <div class="hintro">
+      <div class="k">Discover</div>
+      <h2 class="serif">Step inside the residence</h2>
+      <p>Scroll to explore — from the arrival to the water's edge to the home that's waiting for you.</p>
+    </div>
+    <figure class="hpanel"><img src="assets/hero-dropoff.jpg" alt="Grand covered drop-off" loading="lazy"><figcaption><span class="sub">The Arrival</span>Grand Covered Drop-Off</figcaption></figure>
+    <figure class="hpanel"><img src="assets/pool.jpg" alt="Twin swimming pools" loading="lazy"><figcaption><span class="sub">Facilities</span>Twin Pools &amp; Sun Deck</figcaption></figure>
+    <figure class="hpanel"><img src="assets/living1.jpg" alt="Light-filled living room" loading="lazy"><figcaption><span class="sub">Your Home</span>Light-Filled Living</figcaption></figure>
+    <figure class="hpanel"><img src="assets/kitchen1.jpg" alt="Modern kitchen lifestyle" loading="lazy"><figcaption><span class="sub">Day One</span>A Kitchen That's Ready</figcaption></figure>
+    <figure class="hpanel"><img src="assets/bedroom1.jpg" alt="Elegant master bedroom" loading="lazy"><figcaption><span class="sub">Comfort</span>Restful Bedrooms</figcaption></figure>
+    <figure class="hpanel"><img src="assets/pool2.jpg" alt="Resort pool at night" loading="lazy"><figcaption><span class="sub">Lifestyle</span>Evenings by the Water</figcaption></figure>
   </div>
 </section>
 
@@ -636,11 +702,88 @@
   // ---- entry popup (1.2s, once per session) ----
   (function(){
     var ov=document.getElementById('popOverlay');
-    if(!sessionStorage.getItem('mosaicPopSeen')) setTimeout(function(){ ov.classList.add('show'); },1200);
+    if(!sessionStorage.getItem('mosaicPopSeen')) setTimeout(function(){ ov.classList.add('show'); },2800);
     function close(){ ov.classList.remove('show'); sessionStorage.setItem('mosaicPopSeen','1'); }
     document.getElementById('popClose').addEventListener('click',close);
     ov.addEventListener('click',function(e){ if(e.target===ov) close(); });
   })();
+</script>
+
+<!-- ===================== PREMIUM ENGINE: Lenis + GSAP ===================== -->
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---- luxe loader ----
+  function hideLoader(){ var l=document.getElementById('loader'); if(l) l.classList.add('done'); }
+  if(document.readyState==='complete'){ setTimeout(hideLoader,1500); }
+  else window.addEventListener('load',function(){ setTimeout(hideLoader,1500); });
+  setTimeout(hideLoader,4000); // safety
+
+  // ---- Lenis smooth scroll ----
+  var gsapReady = !!(window.gsap && window.ScrollTrigger);
+  var lenis=null;
+  if(window.Lenis && !reduce){
+    lenis=new Lenis({lerp:0.085,smoothWheel:true});
+    // GSAP ticker drives Lenis when available (below); otherwise self-drive
+    if(!gsapReady){ (function raf(t){ lenis.raf(t); requestAnimationFrame(raf); })(); }
+  }
+
+  // ---- smooth anchor links ----
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id=a.getAttribute('href'); if(id.length<2) return;
+      var el=document.querySelector(id); if(!el) return;
+      e.preventDefault();
+      if(lenis) lenis.scrollTo(el,{offset:-60}); else el.scrollIntoView({behavior:'smooth'});
+    });
+  });
+
+  // ---- nav transform on scroll ----
+  var nav=document.querySelector('nav');
+  function navState(y){ if(nav) nav.classList.toggle('scrolled', y>50); }
+  if(lenis) lenis.on('scroll',function(e){ navState(e.scroll); });
+  else window.addEventListener('scroll',function(){ navState(window.scrollY); });
+
+  // ---- GSAP: sync + pinned horizontal showcase ----
+  if(window.gsap && window.ScrollTrigger){
+    gsap.registerPlugin(ScrollTrigger);
+    if(lenis){
+      lenis.on('scroll',ScrollTrigger.update);
+      gsap.ticker.add(function(t){ lenis.raf(t*1000); });
+      gsap.ticker.lagSmoothing(0);
+    }
+    if(window.innerWidth>820 && !reduce){
+      var track=document.querySelector('.htrack');
+      if(track){
+        var dist=function(){ return Math.max(0, track.scrollWidth - window.innerWidth + window.innerWidth*0.06); };
+        gsap.to(track,{ x:function(){ return -dist(); }, ease:'none',
+          scrollTrigger:{ trigger:'.hsec', start:'top top', end:function(){ return '+='+dist(); },
+            scrub:1, pin:true, anticipatePin:1, invalidateOnRefresh:true } });
+      }
+    }
+  }
+
+  // ---- custom cursor (fine pointer only) ----
+  var dot=document.querySelector('.cursor-dot'), ring=document.querySelector('.cursor-ring');
+  if(dot && ring && matchMedia('(pointer:fine)').matches){
+    var mx=0,my=0,rx=0,ry=0;
+    window.addEventListener('mousemove',function(e){
+      mx=e.clientX; my=e.clientY;
+      dot.style.transform='translate('+mx+'px,'+my+'px) translate(-50%,-50%)';
+    });
+    (function ring_raf(){ rx+=(mx-rx)*0.18; ry+=(my-ry)*0.18;
+      ring.style.transform='translate('+rx+'px,'+ry+'px) translate(-50%,-50%)';
+      requestAnimationFrame(ring_raf); })();
+    document.querySelectorAll('a,button,input,select,.plan,.g,.hpanel').forEach(function(el){
+      el.addEventListener('mouseenter',function(){ ring.classList.add('hover'); });
+      el.addEventListener('mouseleave',function(){ ring.classList.remove('hover'); });
+    });
+  }
+})();
 </script>
 
 </body>
