@@ -58,8 +58,9 @@
   .ghost:hover{background:#fff;color:var(--ink)}
 
   /* ---- HERO ---- */
-  .hero{position:relative;background:linear-gradient(160deg,#283340 0%,#1c2128 55%,#2c2418 100%);color:#fff;text-align:center;padding:90px 22px 80px;overflow:hidden}
-  .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 20%,rgba(181,138,60,.22),transparent 55%);pointer-events:none}
+  .hero{position:relative;background:linear-gradient(rgba(18,23,30,.72),rgba(18,23,30,.82)),url('assets/pool2.jpg') center 35%/cover no-repeat;color:#fff;text-align:center;padding:76px 22px 70px;overflow:hidden}
+  .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 20%,rgba(181,138,60,.18),transparent 55%);pointer-events:none}
+  .hero .logo{position:relative;height:54px;margin:0 auto 20px;width:auto}
   .hero .tag{position:relative;display:inline-block;border:1px solid var(--gold-soft);color:var(--gold-soft);font-size:12px;letter-spacing:2px;padding:6px 16px;border-radius:30px;margin-bottom:22px;text-transform:uppercase}
   .hero h1{position:relative;font-size:42px;line-height:1.15;margin-bottom:10px;font-weight:800}
   .hero .sub{position:relative;font-size:18px;opacity:.9;font-weight:300;letter-spacing:1px;margin-bottom:8px}
@@ -77,7 +78,24 @@
 
   /* ---- ABOUT ---- */
   .about{background:var(--cream)}
-  .about .center p{max-width:680px;margin:14px auto 0;color:#444;font-size:17px}
+  .about .cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center;margin-top:8px}
+  .about .cols p{color:#444;font-size:16.5px;margin-top:14px;text-align:left}
+  .about .cols .txt .eyebrow,.about .cols .txt h2{text-align:left}
+  .about .cols img{border-radius:18px;box-shadow:0 16px 40px rgba(0,0,0,.18);width:100%;height:100%;object-fit:cover}
+  @media(max-width:760px){.about .cols{grid-template-columns:1fr}}
+
+  /* ---- GALLERY ---- */
+  .gal{padding:64px 0;background:#fff}
+  .gal .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+  .gal figure{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.14)}
+  .gal img{width:100%;height:240px;object-fit:cover;transition:transform .35s}
+  .gal figure:hover img{transform:scale(1.05)}
+  .gal figcaption{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(15,18,23,.85));color:#fff;font-size:14px;font-weight:600;padding:26px 16px 12px}
+  @media(max-width:760px){.gal .grid{grid-template-columns:1fr}.gal img{height:210px}}
+
+  /* ---- FACILITIES HERO IMAGE ---- */
+  .fac .photo{margin:34px auto 0;max-width:880px;border-radius:18px;overflow:hidden;box-shadow:0 16px 44px rgba(0,0,0,.18)}
+  .fac .photo img{width:100%;display:block}
 
   /* ---- WHY CARDS ---- */
   .why .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:38px}
@@ -145,7 +163,7 @@
   .pop{position:relative;max-width:480px;width:100%;max-height:92vh;overflow-y:auto;background:linear-gradient(165deg,#fdfaf3 0%,#f5edda 100%);border-radius:20px;box-shadow:0 24px 70px rgba(0,0,0,.5);transform:translateY(24px) scale(.97);transition:transform .35s}
   .pop-overlay.show .pop{transform:translateY(0) scale(1)}
   .pop .x{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;background:rgba(28,33,40,.85);color:#fff;border:none;font-size:17px;cursor:pointer;z-index:2;line-height:1}
-  .pop .head{background:linear-gradient(150deg,#283340,#1c2128);color:#fff;text-align:center;padding:30px 24px 24px;border-radius:20px 20px 0 0}
+  .pop .head{background:linear-gradient(rgba(20,25,32,.78),rgba(20,25,32,.85)),url('assets/pool.jpg') center/cover no-repeat;color:#fff;text-align:center;padding:34px 24px 26px;border-radius:20px 20px 0 0}
   .pop .head .free{display:inline-block;background:var(--gold);color:#1c2128;font-weight:800;font-size:13px;letter-spacing:2px;padding:6px 16px;border-radius:30px;margin-bottom:12px;text-transform:uppercase}
   .pop .head h3{font-size:26px;line-height:1.2;margin-bottom:6px}
   .pop .head h3 span{color:var(--gold-soft)}
@@ -179,6 +197,7 @@
 
 <!-- ===================== HERO ===================== -->
 <header class="hero">
+  <img class="logo" src="assets/logo.webp" alt="Mosaic Residence logo">
   <span class="tag">Subang 2 · Shah Alam · 99-Yr Leasehold</span>
   <h1>Mosaic Residence @ Nadayu</h1>
   <div class="sub">Spacious Living, Shaping Subang 2's Skyline</div>
@@ -207,10 +226,27 @@
 </section>
 
 <!-- ===================== ABOUT ===================== -->
-<section class="about"><div class="wrap center">
-  <div class="eyebrow">The Address</div>
-  <h2>A New Standard of Space in Subang 2</h2>
-  <p>Mosaic Residence by Taipanika Development — built by <b>Nestcon</b> — brings genuinely spacious 3 &amp; 4-bedroom homes to the fast-growing Subang 2 corridor, minutes from HELP University, Star Avenue Mall and major highways. Every unit comes with a <b>FREE 7-item home package</b>: kitchen cabinet, hood &amp; hob, digital lock, air conditioner, water heater, 2-door fridge &amp; washing machine. Book with just <b>RM680</b> and move in by December 2026.</p>
+<section class="about"><div class="wrap">
+  <div class="cols">
+    <div class="txt">
+      <div class="eyebrow">The Address</div>
+      <h2>A New Standard of Space in Subang 2</h2>
+      <p>Mosaic Residence by Taipanika Development — built by <b>Nestcon</b> — brings genuinely spacious 3 &amp; 4-bedroom homes to the fast-growing Subang 2 corridor, minutes from HELP University, Star Avenue Mall and major highways.</p>
+      <p>Every unit comes with a <b>FREE 7-item home package</b>: kitchen cabinet, hood &amp; hob, digital lock, air conditioner, water heater, 2-door fridge &amp; washing machine. Book with just <b>RM680</b> and move in by December 2026.</p>
+    </div>
+    <img src="assets/hero-dropoff.jpg" alt="Mosaic Residence grand drop-off entrance" loading="lazy">
+  </div>
+</div></section>
+
+<!-- ===================== GALLERY ===================== -->
+<section class="gal"><div class="wrap center">
+  <div class="eyebrow">The Lifestyle</div>
+  <h2>See Yourself Home</h2>
+  <div class="grid">
+    <figure><img src="assets/pool.jpg" alt="Twin swimming pools at dusk, Mosaic Residence" loading="lazy"><figcaption>Twin Pools &amp; Sun Deck</figcaption></figure>
+    <figure><img src="assets/lobby.jpg" alt="Designer lobby lounge, Mosaic Residence" loading="lazy"><figcaption>Designer Lobby Lounge</figcaption></figure>
+    <figure><img src="assets/hero-dropoff.jpg" alt="Grand covered drop-off, Mosaic Residence" loading="lazy"><figcaption>Grand Covered Drop-Off</figcaption></figure>
+  </div>
 </div></section>
 
 <!-- ===================== WHY CHOOSE ===================== -->
@@ -250,6 +286,7 @@
 <section class="fac"><div class="wrap center">
   <div class="eyebrow">Curated Facilities</div>
   <h2>Resort-Style Living, Every Day</h2>
+  <div class="photo"><img src="assets/pool2.jpg" alt="Resort-style swimming pool against the Mosaic Residence tower at night" loading="lazy"></div>
   <div class="chips">
     <span class="chip"><b>·</b> Swimming Pool</span>
     <span class="chip"><b>·</b> Wading Pool</span>
