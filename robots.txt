@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ht5qqq4nsx-tech.github.io/sitemap.xml
+Sitemap: https://mosaicsubang2.github.io/sitemap.xml
